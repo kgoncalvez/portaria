@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página com Amendoim e Música</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .texto-musica {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 20px;
+        }
+        .login-form, .cadastro-btn {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .login-form button, .cadastro-btn button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .login-form button:hover, .cadastro-btn button:hover {
+            background-color: #45a049;
+        }
+        .cadastro-btn {
+            margin-top: 30px;
+        }
+        .cadastro-btn h2 {
+            margin: 10px 0;
+        }
+        .cadastro-btn button {
+            padding: 10px 30px;
+            font-size: 1.1em;
+        }
+        .error-message {
+            color: red;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Amendoim e Música</h1>
+        <img src="https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.3394990:1689867151/shutterstock_1991301764_Easy-Resize.com.jpg?f=16x9&h=698&w=1280&$p$f$h$w=7c83156" alt="Amendoim">
+        <div class="texto-musica">
+            <p>Sorriso, Sou Rei - Natiruts</p>
+            <p>Quando eu vejo a luz do sol<br>
+               Eu sinto a paz em meu coração<br>
+               A vida é bela, e eu vou aproveitar<br>
+               Cada momento que ela me dá</p>
+        </div>
+        <div class="login-form">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Nome de usuário" required>
+                <input type="password" id="password" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <div id="error-message" class="error-message"></div>
+        </div>
+        <div class="cadastro-btn">
+            <h2>Não tem uma conta?</h2>
+            <button onclick="window.location.href='pagina_cadastro.html'">Cadastrar</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            
+            // Verifica se o usuário e a senha estão no localStorage
+            var storedUser = localStorage.getItem('username');
+            var storedPass = localStorage.getItem('password');
+            
+            if (username === storedUser && password === storedPass) {
+                window.location.href = 'pagina_0002.html';
+            } else {
+                document.getElementById('error-message').textContent = 'Usuário ou senha incorretos. Por favor, faça o cadastro.';
+            }
+        });
+    </script>
+</body>
+</html>
